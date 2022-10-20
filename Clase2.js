@@ -31,20 +31,6 @@ console.log(usuario1.getBookNames())
   
    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* 
 En los parámetros colocamos lo que queremos que CAMBIE cada vez que creamos un nuevo usuario, por
 ejemplo. En cambio, si queremos que un valor sea el mismo por defecto cada vez
@@ -57,7 +43,3 @@ THIS: Separa las instancias para que cada nuevo "Usuario" tenga exclusividad res
 en un usuario no tiene por qué relacionarse con otro. Sin embargo, se puede que todos los usuarios
 compartan algo global a través de STATIC.
 */
-
-            
-            
-            // const usuario = new Usuario("tomas", "dangelo", "tuvieja", "perro")
