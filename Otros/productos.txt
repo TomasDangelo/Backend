@@ -1,0 +1,6 @@
+{
+  "id": 4,
+  "title": "Calza",
+  "price": 500,
+  "thumbnail": "http://calza.../images/"
+}
