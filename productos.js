@@ -29,16 +29,16 @@ async function crear (){
        await acceder.save(prod3) .then(prod => console.log(prod)).catch(err => console.log(err))
 
         /* Después, accedo a un objeto por ID (2 en este caso) */
-       await acceder.getId(2) .then(prod => console.log(prod)).catch(err => console.log(err))
+    //    await acceder.getId(2) .then(prod => console.log(prod)).catch(err => console.log(err))
 
        /* Accedo a todos los objetos que existan en el json */
-       await acceder.getAll() .then(prod => console.log(prod)).catch(err => console.log(err))
+    //    await acceder.getAll() .then(prod => console.log(prod)).catch(err => console.log(err))
 
         /* Borro el objeto con id 2 */
-       await acceder.deleteById(2) .then(prod => console.log(prod)).catch(err => console.log(err))
+       await acceder.deleteById(4) .then(prod => console.log(prod)).catch(err => console.log(err))
 
         /* Borro todo */
-       await acceder.deleteAll() .then(prod => console.log(prod)).catch(err => console.log(err))
+    //    await acceder.deleteAll() .then(prod => console.log(prod)).catch(err => console.log(err))
 }
 
 crear()

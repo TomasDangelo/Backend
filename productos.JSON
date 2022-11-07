@@ -1,1 +1,98 @@
-[]
+[
+  {
+    "title": "Remera",
+    "price": 150,
+    "thumbnail": "http://remera.../images/",
+    "id": 1
+  },
+  {
+    "title": "Jean",
+    "price": 550,
+    "thumbnail": "http://jean.../images/",
+    "id": 3
+  },
+  {
+    "title": "Camisa",
+    "price": 950,
+    "thumbnail": "http://camisa.../images/",
+    "id": 5
+  },
+  {
+    "title": "Jean",
+    "price": 550,
+    "thumbnail": "http://jean.../images/",
+    "id": 6
+  },
+  {
+    "title": "Remera",
+    "price": 150,
+    "thumbnail": "http://remera.../images/",
+    "id": 7
+  },
+  {
+    "title": "Camisa",
+    "price": 950,
+    "thumbnail": "http://camisa.../images/",
+    "id": 8
+  },
+  {
+    "title": "Jean",
+    "price": 550,
+    "thumbnail": "http://jean.../images/",
+    "id": 9
+  },
+  {
+    "title": "Remera",
+    "price": 150,
+    "thumbnail": "http://remera.../images/",
+    "id": 10
+  },
+  {
+    "title": "Camisa",
+    "price": 950,
+    "thumbnail": "http://camisa.../images/",
+    "id": 11
+  },
+  {
+    "title": "Jean",
+    "price": 550,
+    "thumbnail": "http://jean.../images/",
+    "id": 12
+  },
+  {
+    "title": "Remera",
+    "price": 150,
+    "thumbnail": "http://remera.../images/",
+    "id": 13
+  },
+  {
+    "title": "Camisa",
+    "price": 950,
+    "thumbnail": "http://camisa.../images/",
+    "id": 14
+  },
+  {
+    "title": "Jean",
+    "price": 550,
+    "thumbnail": "http://jean.../images/",
+    "id": 15
+  },
+  {
+    "title": "Remera",
+    "price": 150,
+    "thumbnail": "http://remera.../images/",
+    "id": 16
+  },
+  {
+    "title": "Camisa",
+    "price": 950,
+    "thumbnail": "http://camisa.../images/",
+    "id": 17
+  },
+  {
+    "title": "Jean",
+    "price": 550,
+    "thumbnail": "http://jean.../images/",
+    "id": 18
+  }
+]

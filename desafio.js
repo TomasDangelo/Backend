@@ -53,7 +53,7 @@ class Contenedor {
          const read = await fs.readFile(this.nombreArchivo, 'utf-8')
          const data = JSON.parse(read)
          const objeto = data.find(obj => obj.id === id)
-         if (objeto) {data.splice(data.indexOf(objeto), 1)}
+         objeto? data.splice(data.indexOf(objeto), 1) && console.log("objeto borrado!") : console.log("no existe ese objeto")
          await fs.writeFile(this.nombreArchivo, JSON.stringify(data, null, 2), 'utf-8')
          /* Si existe el objeto con ese id, lo elimino */
       } catch (error) {
