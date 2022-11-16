@@ -29,17 +29,33 @@ routerProds.get('/:id', async (req, res) =>{
 })
 
 routerProds.post('/', async (req, res) =>{
-    const { productoPostman } = req.body
-    const guardar = await archivo.guardar(productoPostman)
-    res.send(guardar)
+    let { title, price, thumbnail } = req.body
+    price = parseFloat(price)
+    const producto = {'title' : title, 'price' : price, 'thumbnail' : thumbnail}
+    const resultado = await archivo.guardar(producto)
+    try {
+        res.json(resultado)
+    } catch (e) {
+        res.error("No se pudo guardar el producto")
+    }
 })
 
-routerProds.put('/:id', (req, res) =>{
-    res.send({productos: id})
+routerProds.put('/:id', async (req, res) =>{
+    const id  = req.params.id
+    let {title, price, thumbnail} = req.body
+    const producto = {title: title, price: price, thumbnail: thumbnail}
+    const resultado = await archivo.actualizar(parseInt(id), producto)
+    try {
+        res.json(resultado)
+    } catch (e) {
+        res.error("No se pudo guardar el producto")
+    }
 })
 
-routerProds.delete('/:id', (req, res) =>{
-    res.send({productos: id})
+routerProds.delete('/:id', async (req, res) =>{
+    const id = req.params.id
+    const borrar = await archivo.borrar(parseInt(id))
+    res.json({borrado: borrar})
 })
 
 

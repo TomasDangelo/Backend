@@ -7,9 +7,9 @@ class Productos {
 
     async listar(id) {
        try {
-       this.productos = await this.leer()
+       this.productos = await this.listarAll()
        const listar = this.productos.filter((prod) => prod.id === id)
-       if (listar) {return listar}  else {return []}
+       if (listar) {return listar}  else {return false}
      } 
        catch (error) {console.log(error)}}
 
@@ -20,43 +20,49 @@ class Productos {
         return JSON.parse(prods)
         } catch (error) {console.log(error)}}
 
-        async guardar(prod) {
+    async guardar(prod) {
             try{
-            const leer = await this.fs.promises.readFile(this.nombre, 'utf8')
-            const productos = JSON.parse(leer)
-            productos.length === 0 ?  (id = 1) : (id = product[product.length - 1].id + 1)
-            const productoNuevo = {...prod, id}
-            productos.push(productoNuevo)
-            await fs.writeFile(this.nombre, JSON.stringify(productos, null, 2) , 'utf8')
+            let id;
+            const productos = await this.listarAll()
+            productos.length === 0 ?  (id = 1) : (id = productos[productos.length - 1].id + 1)
+            prod.id = id;
+            productos.push(prod)
+            await this.fs.promises.writeFile(this.nombre, JSON.stringify(productos, null, 2))
+            return prod
+            }
+            catch (error){console.log("error actualizando", error)}
         }
-            catch (error){
-                if (error) throw new Error ("error guardando", error);
-            }
-                          }
 
-
-    async leer() {
+    async actualizar(id, producto) {
         try {
-        let prods = await this.fs.promises.readFile(this.nombre, 'utf-8')
-        return JSON.parse(prods)}
-        catch(error) {return []}}
-
-
-    async actualizar(prod, id) {
-        try {
-            this.productos = await this.leer()
-            const existe = this.productos.find(producto => producto.id === id)
+            let prods = await this.fs.promises.readFile(this.nombre, 'utf8')
+            let prodsJSON = JSON.parse(prods)
+            const existe = prodsJSON.find((prod) => prod.id === id)
             if (existe){
-            prod.price *= 1.20
-            }
-            
-           } catch (error) {console.log(error)}
+                const prodsFiltrados = prodsJSON.filter((prod) => prod.id != id)
+                const newProd = {id, ...producto}
+                let productos = [newProd, ...prodsFiltrados,]
+                await this.fs.promises.writeFile(this.nombre, JSON.stringify(productos, null, 2))
+                return newProd
+            } 
+            else {
+            return false}
+            } catch(error){console.log("error actualizando")}
 
     }
 
     async borrar(id) {
-        const borrar = this.productos.find(prod => prod.id === id)
-        borrar? this.productos.splice(indexOf(borrar), 1) : "no existe ese objeto"}}
+    try {
+    let prodsParsear = await this.fs.promises.readFile(this.nombre, 'utf8')
+    let prods = JSON.parse(prodsParsear)
+    const filtrar = prods.filter(prod => prod.id === Number(id))
+    if (!filtrar){return false} 
+    let productosFinal = prods.filter(prod => prod.id !== Number(id))
+    await this.fs.promises.writeFile(this.nombre, JSON.stringify(productosFinal, null, 2))
+} 
+    catch(error){throw new Error(error)}
+    }
+}
 
 
 module.exports = Productos
